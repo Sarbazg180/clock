@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Page Title</title>
+        <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+        <style type="text/css">
+        
+        body{
+        background-color:#fff2de;
+        }
+        .clock {
+        border:6px solid #ff6600;
+        width:250px;
+        height:250px;
+        border-radius:50%;
+        position:absolute ;
+        top:20%;
+        left:50%;
+        transform:translate(-50%) rotate(-90deg);
+        
+        }
+        .sec-div{
+        position:absolute;
+        left:47.5%;
+        top:47.5%;
+        background-color:#ffffff;
+        width:13px;
+        height:13px;
+        border-radius:50%;
+        z-index:10;
+        }
+        .sec {
+        position:absolute;
+        left:50%;
+        top:50%;
+        transform:translate(-50% , -50%);
+        background-color:red;
+        height:3px;
+        width:120px;
+        margin-left:60px;
+        border-radius:1vw;
+        }
+        .min-div{
+        position:absolute;
+        left:47.5%;
+        top:47.5%;
+        background-color:#ff6600;
+        width:13px;
+        height:13px;
+        border-radius:50%;
+        z-index:15;
+        }
+        .min {
+        position:absolute;
+        left:50%;
+        top:50%;
+        transform:translate(-50% , -50%);
+        background-color:#ff6600;
+        height:6px;
+        width:107px;
+        margin-left:55px;
+        border-radius:1vw;
+        }
+        .hour-div{
+        position:absolute;
+        left:47.5%;
+        top:47.5%;
+        background-color:#ff6600;
+        width:13px;
+        height:13px;
+        border-radius:50%;
+        margin-right:100px;
+        }
+        .hour {
+        position:absolute;
+        left:50%;
+        top:50%;
+        transform:translate(-50% , -50%);
+        background-color:#ff6600;
+        height:8px;
+        width:80px;
+        margin-left:36px;
+        border-radius:1vw;
+        }
+        .div{
+        position:absolute;
+        left:47.5%;
+        top:47.5%;
+        background-color:#ffffff;
+        width:10px;
+        height:10px;
+        border-radius:50%;
+        margin-right:100px;
+        z-index:20;
+        border:3px solid #ff6600;
+        }
+        .background{
+        background-color:black;
+        width:100px;
+        height:100px;
+        position:relative ;
+        top:70vw;
+        left:50%;
+        transform:translate(-50%);
+        }
+        
+        </style>
+    </head>
+    <body>
+        <div class="clock">
+            <div class="min-div">
+                <div class="min"></div>
+            </div>
+            <div class="hour-div">
+                <div class="hour"></div>
+            </div>
+            <div class="sec-div">
+                <div class="sec"></div>
+            </div>
+            <div class="div"></div>
+        </div>
+        <script type="text/javascript">
+        
+        function time() {
+        
+    	    var dt = new Date();
+    	    var s = dt.getSeconds();
+        	var m = dt.getMinutes();
+        	var h = dt.getHours();
+        
+        	sec = s * 6 ;
+        	min = m * 6 ;
+    	    hour = h * 30 + m/12 ;
+        
+        	document.getElementsByClassName("sec-div")[0].style.transform = "rotate("+sec+"deg)";
+        	document.getElementsByClassName("min-div")[0].style.transform = "rotate("+min+"deg)";
+        	document.getElementsByClassName("hour-div")[0].style.transform = "rotate("+hour+"deg)";
+        }
+        
+        setInterval(time , 1000)
+        </script>
+    </body>
+</html>
